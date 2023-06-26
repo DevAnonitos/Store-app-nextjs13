@@ -9,8 +9,6 @@ import { NavLinks } from '@/constant';
 import AuthProviders from './AuthProviders';
 import Button from './Button';
 import ProfileMenu from './ProfileMenu';
-import { link } from 'fs';
-
 
 const Navbar = async () => {
     return (
@@ -34,7 +32,9 @@ const Navbar = async () => {
                                 href={link.href}
                                 className='border-2 px-3 py-2
                                 rounded-lg hover:shadow-md antialiased
-                                hover:subpixel-antialiased font-semibold'
+                                hover:subpixel-antialiased font-semibold
+                                hover:bg-[#c56cf0] hover:text-white
+                                transition-all ease-in-out duration-300'
                             >
                                 {link.text}
                             </Link>
