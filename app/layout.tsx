@@ -1,5 +1,6 @@
 import './globals.css';
 import { Footer, Navbar } from '@/components';
+import { Providers } from "./providers";
 
 export const metadata = {
   title: 'StoreStockApp',
@@ -14,11 +15,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar />
-          <main>
-            {children}
-          </main>
-        <Footer />
+        <Providers>
+          <Navbar />
+            <main>
+              {children}
+            </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

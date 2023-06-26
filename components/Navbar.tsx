@@ -23,6 +23,7 @@ const Navbar = async () => {
                             width={116}
                             height={43}
                             alt='LogoApp'
+                            priority
                             className='cursor-pointer object-contain border-2'
                         />
                     </Link>
@@ -42,7 +43,7 @@ const Navbar = async () => {
                 </div>
 
                 <div className='flexCenter gap-4'>
-                    
+
                 </div>
             </nav>
         </>
