@@ -9,6 +9,7 @@ import { NavLinks } from '@/constant';
 import AuthProviders from './AuthProviders';
 import Button from './Button';
 import ProfileMenu from './ProfileMenu';
+import { link } from 'fs';
 
 
 const Navbar = async () => {
@@ -25,6 +26,23 @@ const Navbar = async () => {
                             className='cursor-pointer object-contain border-2'
                         />
                     </Link>
+                    <ul className='xl:flex hidden text-small gap-7'>
+                        {NavLinks.map((link) => (
+                            <Link
+                                key={link.text}
+                                href={link.href}
+                                className='border-2 px-3 py-2
+                                rounded-lg hover:shadow-md antialiased
+                                hover:subpixel-antialiased font-semibold'
+                            >
+                                {link.text}
+                            </Link>
+                        ))}
+                    </ul>
+                </div>
+
+                <div className='flexCenter gap-4'>
+                            
                 </div>
             </nav>
         </>
