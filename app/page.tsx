@@ -1,10 +1,19 @@
 
 import React from 'react';
+import { LoadMore, Categories, ProjectCard } from '@/components';
 
-const Home = () => {
+const Home = async () => {
   return (
     <>
-      Home
+      <section className='flexStart flex-col paddings mb-16'>
+        <Categories />
+
+        <section className='projects-grid'>
+          <ProjectCard />
+        </section>
+
+        <LoadMore />
+      </section>
     </>
   );
 };

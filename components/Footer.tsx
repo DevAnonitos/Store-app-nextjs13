@@ -12,7 +12,7 @@ type ColumProps = {
 const FooterColumn = ({ title, links }: ColumProps) => (
     <>
         <div className='footer_column'>
-            <h4 className='font-semibold'>
+            <h4 className='font-semibold text-lg'>
                 {title}
             </h4>
             <ul className='flex flex-col gap-2 font-normal'>
@@ -20,6 +20,7 @@ const FooterColumn = ({ title, links }: ColumProps) => (
                     <Link
                         href="/"
                         key={link}
+                        className='hover:underline'
                     >
                         {link}
                     </Link>
@@ -91,7 +92,7 @@ const Footer = () => {
                 </div>
 
                 <div className='flexBetween footer_copyright'>
-                    <p>
+                    <p className='font-medium text-md'>
                         @ 2023 NguyenBao. All rights reserved
                     </p>
                     <p className="text-gray">
