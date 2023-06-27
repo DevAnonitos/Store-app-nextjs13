@@ -1,6 +1,9 @@
-import React from 'react';
+"use client";
+
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from "next/link";
+import FormattedDate from './FormattedDate';
 
 import { footerLinks } from '@/constant';
 
@@ -31,6 +34,17 @@ const FooterColumn = ({ title, links }: ColumProps) => (
 );
 
 const Footer = () => {
+
+    const [currentDate, setCurrentDate] = useState(new Date());
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentDate(new Date());
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <>
             <section className='flexStart footer'>
@@ -95,10 +109,8 @@ const Footer = () => {
                     <p className='font-medium text-md'>
                         @ 2023 NguyenBao. All rights reserved
                     </p>
-                    <p className="text-gray">
-                        <span className="text-black font-semibold">
-                            10,214
-                        </span> projects submitted
+                    <p className="text-violet-600 font-semibold text-md">
+                        <FormattedDate date={currentDate} />
                     </p>
                 </div>
             </section>
