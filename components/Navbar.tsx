@@ -11,6 +11,9 @@ import Button from './Button';
 import ProfileMenu from './ProfileMenu';
 
 const Navbar = async () => {
+
+    const session= {};
+
     return (
         <>
             <nav className='flexBetween navbar'>
@@ -43,7 +46,18 @@ const Navbar = async () => {
                 </div>
 
                 <div className='flexCenter gap-4'>
-
+                    {session ? (
+                        <>
+                            UserPhoto
+                            <Link href="/create-project">
+                                ShareWork
+                            </Link>
+                        </>
+                    ) : (
+                        <>
+                            <AuthProviders />
+                        </>
+                    )}
                 </div>
             </nav>
         </>
