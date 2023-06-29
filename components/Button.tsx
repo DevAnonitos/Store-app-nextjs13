@@ -35,6 +35,7 @@ const Button = ({
                     ? bgColor
                     : 'bg-primary-purple'
                 } rounded-xl text-sm font-medium max-md:w-full`}
+                onClick={handleClick}
             >
                 {leftIcon
                     && <Image
