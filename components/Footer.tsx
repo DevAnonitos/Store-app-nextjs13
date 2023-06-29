@@ -47,7 +47,7 @@ const Footer = () => {
 
     return (
         <>
-            <section className='flexStart footer'>
+            <section className='flexStart footer border-t-[1px] border-nav-border'>
                 <div className='flex flex-col gap-12 w-full'>
                     <div className='flex items-start flex-col'>
                         <Link href="/">
