@@ -21,7 +21,7 @@ const LoadMore = ({
     const router = useRouter();
 
     const handleNavigation = (type: string) => {
-
+        router.push("");
     };
 
     return (
