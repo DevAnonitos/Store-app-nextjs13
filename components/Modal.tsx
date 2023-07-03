@@ -12,9 +12,40 @@ export default function Modal ({ children }: {
     const wrapper = useRef<HTMLDivElement>(null);
     const router = useRouter();
 
+    const onDismiss = useCallback(() => {
+        router.push("/");
+    }, [router]);
+
+    const handleClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+        if((e.target === overplay.current) && onDismiss) {
+            onDismiss();
+        }
+    }, [onDismiss, overplay]);
+
     return (
         <>
-            Modal
+            <div
+                ref={overplay}
+                className="modal"
+                onClick={(e) => handleClick(e)}
+            >
+                <button
+                    type="button"
+                    onClick={onDismiss}
+                    className="absolute top-4 right-8"
+                >
+                    <Image
+                        src="/close.svg"
+                        width={17}
+                        height={17}
+                        alt="Close"
+                    />
+                </button>
+
+                <div ref={wrapper} className="modal_wrapper">
+                    {children}
+                </div>
+            </div>
         </>
     );
 };
