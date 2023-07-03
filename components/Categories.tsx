@@ -19,7 +19,7 @@ const Categories = () => {
     return (
         <>
             <div className='flexBetween w-full gap-5 flex-wrap'>
-                <div className='flex gap-2 overflow-auto'>
+                <div className='flex gap-2 overflow-auto scroll-smooth touch-auto snap-both'>
                     {categoryFilters.map((filter) => (
                         <button
                             key={filter}
