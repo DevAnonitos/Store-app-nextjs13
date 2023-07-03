@@ -19,7 +19,7 @@ const Categories = () => {
     return (
         <>
             <div className='flexBetween w-full gap-5 flex-wrap'>
-                <div className='flex gap-2 overflow-auto scroll-smooth touch-auto snap-both'>
+                <div className='flex gap-2 overflow-auto scroll-smooth touch-auto'>
                     {categoryFilters.map((filter) => (
                         <button
                             key={filter}
@@ -29,7 +29,7 @@ const Categories = () => {
                                 category === filter
                                 ? "bg-light-white-300 font-medium"
                                 : "font-normal"
-                            } px-4 py-3 rounded-lg capitalize whitespace-nowrap`}
+                            } px-4 py-3 rounded-full capitalize whitespace-nowrap`}
                         >
                             {filter}
                         </button>

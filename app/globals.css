@@ -36,12 +36,14 @@ body {
 
 ::-webkit-scrollbar {
   width: 5px;
-  height: 4px;
+  height: 3px;
+  margin-top: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 12px;
+  margin-top: 10px;
 }
 
 .modal-head-text {
