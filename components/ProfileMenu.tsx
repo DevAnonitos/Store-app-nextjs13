@@ -48,7 +48,64 @@ const ProfileMenu = (
                             className="flexStart profile_menu-items"
                             onMouseLeave={() => setOpenModal(false)}
                         >
-                            
+                            <div className='flex flex-col items-center gap-y-4'>
+                                {session?.user?.image && (
+                                    <Image
+                                        src={session?.user?.image}
+                                        className='rounded-full object-contain ring-2'
+                                        width={80}
+                                        height={80}
+                                        alt='ProfileImage'
+                                    />
+                                )}
+                                <p className='font-semibold'>
+                                    {session?.user?.name}
+                                </p>
+                            </div>
+
+                            <div
+                                className='flex flex-col gap-3
+                                pt-10 items-start w-full'
+                            >
+                                <Menu.Item>
+                                    <Link
+                                        href={``}
+                                        className='text-sm'
+                                    >
+                                        Work Preferences
+                                    </Link>
+                                </Menu.Item>
+                                <Menu.Item>
+                                    <Link
+                                        href={``}
+                                        className='text-sm'
+                                    >
+                                        Settings
+                                    </Link>
+                                </Menu.Item>
+                                <Menu.Item>
+                                    <Link
+                                        href={``}
+                                        className='text-sm'
+                                    >
+                                        Profile
+                                    </Link>
+                                </Menu.Item>
+                            </div>
+                            <div
+                                className='w-full flexStart border-t
+                                border-nav-border mt-5 pt-5 '
+                            >
+                                <Menu.Item>
+                                    <button
+                                        type='button'
+                                        className='text-sm'
+                                        onClick={() => signOut()}
+                                    >
+                                        SingOut
+                                    </button>
+                                </Menu.Item>
+                            </div>
                         </Menu.Items>
                     </Transition>
                 </Menu>
