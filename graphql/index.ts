@@ -38,6 +38,21 @@ export const deleteProjectMutation = `
         }
     }
 `;
+export const createUserMutation = `
+    mutation CreateUser($input: $input) {
+        userCreate(input: $input) {
+            user {
+                name
+                email
+                avatarUrl
+                description
+                githubUrl
+                linkedUrl
+                id
+            }
+        }
+    }
+`;
 export const projectsQuery = `
     query getProjects($category: String, $endcursor: String) {
         projectSearch(first: 8, after: $endcursor, filter: {category: {eq: $category}}) {
