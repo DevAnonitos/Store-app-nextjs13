@@ -61,11 +61,14 @@ export const fetchAllProjects = (
 ) => {
     client.setHeader("x-api-key", apiKey);
 
-
-}
+    return makeGraphQLRequest(projectsQuery, {
+        category,
+        endcursor,
+    });
+};
 
 export const deleteProject = (id: string, token: string) => {
-
+    
 };
 
 export const getProjectDetail = (id: string) => {
