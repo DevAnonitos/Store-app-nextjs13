@@ -36,7 +36,7 @@ body {
 
 ::-webkit-scrollbar {
   width: 5px;
-  height: 3px;
+  height: 4px;
   margin-top: 10px;
 }
 
@@ -47,7 +47,7 @@ body {
 }
 
 .modal-head-text {
-  @apply md:text-5xl text-3xl font-extrabold text-left max-w-5xl w-full;
+  @apply md:text-5xl text-3xl font-extrabold text-center max-w-5xl w-full border-2 py-2 rounded-full border-gray-100 bg-[#9747FF] text-white;
 }
 
 .no-result-text {

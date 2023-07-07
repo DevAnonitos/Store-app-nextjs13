@@ -36,9 +36,10 @@ export default function Modal ({ children }: {
                 >
                     <Image
                         src="/close.svg"
-                        width={17}
-                        height={17}
+                        width={22}
+                        height={22}
                         alt="Close"
+                        className="rounded-full"
                     />
                 </button>
 
