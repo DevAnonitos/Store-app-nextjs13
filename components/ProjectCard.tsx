@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import { motion } from 'framer-motion';
+
 type Props = {
     id: string;
     image: string;
@@ -34,7 +36,11 @@ const ProjectCard = ({
 
     return (
         <>
-            <div className='flexCenter flex-col rounded-2xl drop-shadow-card'>
+            <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className='flexCenter flex-col rounded-2xl drop-shadow-card'
+            >
                 <Link
                     href={`/projects/${id}`}
                     className='flexCenter group relative w-full h-full'
@@ -97,7 +103,7 @@ const ProjectCard = ({
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </>
     );
 };
