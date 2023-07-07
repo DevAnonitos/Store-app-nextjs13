@@ -1,0 +1,17 @@
+# Set the encoding for all text files to UTF-8
+* text=auto eol=lf encoding=utf-8
+
+# Treat all .md files as text
+*.md text
+
+# Use the built-in merge driver for JSON files
+*.json merge=merge-json
+
+# Use the patience diff algorithm for all files
+* diff=patience
+
+# Treat all .module.css files as CSS modules
+*.module.css  modules
+
+# Treat all .svg files as assets
+*.svg  binary
