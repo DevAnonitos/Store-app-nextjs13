@@ -22,7 +22,7 @@ const CustomMenu = ({
             <div className='flexStart flex-col w-full gap-7 relative'>
                 <label
                     htmlFor={title}
-                    className='w-full text-gray-100'
+                    className='w-full text-gray-100 font-bold'
                 >
                     {title}
                 </label>
