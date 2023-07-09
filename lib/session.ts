@@ -5,6 +5,7 @@ import GoogleProvider from "next-auth/providers/google";
 import jsonwebtoken from "jsonwebtoken";
 import { JWT } from "next-auth/jwt";
 
+import { createUser, getUser } from "./actions";
 import { SessionInterface, UserProfile } from "@/common.types";
 
 export const authOptions: NextAuthOptions = {
@@ -41,6 +42,17 @@ export const authOptions: NextAuthOptions = {
 
             try {
 
+                const data = await getUser(email) as { user?: UserProfile };
+
+                const newSession = {
+                    ...session,
+                    user: {
+                        ...session.user,
+                        ...data?.user,
+                    },
+                };
+
+                return session;
             } catch (error: any) {
                 console.log("Error retrieving user data: ", error.message);
                 return session;
@@ -51,7 +63,19 @@ export const authOptions: NextAuthOptions = {
         }) {
             try {
 
-                return true
+                const userExists = await getUser(user?.email as string) as {
+                    user?: UserProfile
+                };
+
+                if(!userExists.user) {
+                    await createUser(
+                        user.name as string,
+                        user.email as string,
+                        user.image as string
+                    );
+                }
+
+                return true;
             } catch (error: any) {
                 console.log("Error checking if user exists: ", error.message);
                 return false;
