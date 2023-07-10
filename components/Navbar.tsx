@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { NavLinks } from '@/constant';
-import { getCurrentUser } from '@/lib/session';
+import { getCurrentUser } from '@/libs/session';
 
 // Components
 import AuthProviders from './AuthProviders';
@@ -50,7 +50,9 @@ const Navbar = async () => {
                 <div className='flexCenter gap-4'>
                     {session ? (
                         <>
-                            <ProfileMenu />
+                            <ProfileMenu
+
+                            />
                             <Link href="/create-project">
                                 <Button title='Share Work' />
                             </Link>
