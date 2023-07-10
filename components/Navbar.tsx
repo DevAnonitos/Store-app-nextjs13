@@ -14,7 +14,8 @@ import ProfileMenu from './ProfileMenu';
 
 const Navbar = async () => {
 
-    const session = {};
+    const session = null;
+    console.log(session);
 
     return (
         <>
@@ -51,7 +52,7 @@ const Navbar = async () => {
                     {session ? (
                         <>
                             <ProfileMenu
-
+                                session={session}
                             />
                             <Link href="/create-project">
                                 <Button title='Share Work' />

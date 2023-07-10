@@ -17,6 +17,7 @@
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
     "cloudinary": "^1.37.2",
+    "encoding": "^0.1.13",
     "framer-motion": "^10.12.17",
     "graphql-request": "^6.1.0",
     "jsonwebtoken": "^9.0.0",
