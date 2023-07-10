@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Fragment, use, useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { signOut } from 'next-auth/react';
@@ -69,7 +69,7 @@ const ProfileMenu = (
                             >
                                 <Menu.Item>
                                     <Link
-                                        href={``}
+                                        href={`/profile/${session?.user?.id}`}
                                         className='text-sm'
                                     >
                                         Work Preferences
@@ -77,7 +77,7 @@ const ProfileMenu = (
                                 </Menu.Item>
                                 <Menu.Item>
                                     <Link
-                                        href={``}
+                                        href={`/profile/${session?.user?.id}`}
                                         className='text-sm'
                                     >
                                         Settings
@@ -85,7 +85,7 @@ const ProfileMenu = (
                                 </Menu.Item>
                                 <Menu.Item>
                                     <Link
-                                        href={``}
+                                        href={`/profile/${session?.user?.id}`}
                                         className='text-sm'
                                     >
                                         Profile

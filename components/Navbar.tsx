@@ -14,7 +14,7 @@ import ProfileMenu from './ProfileMenu';
 
 const Navbar = async () => {
 
-    const session = null;
+    const session = await getCurrentUser();
     console.log(session);
 
     return (

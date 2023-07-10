@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { ProjectInterface } from '@/common.types';
+import { fetchAllProjects } from '@/libs/actions';
 import { LoadMore, Categories, ProjectCard } from '@/components';
 
 type SearchParams = {
@@ -37,7 +38,23 @@ const Home = async ({
   },
 }: Props) => {
 
+  const data = await fetchAllProjects(category, endcursor) as ProjectSearch;
 
+  const projectsToDisplay = data?.projectSearch?.edges || [];
+
+  if (projectsToDisplay.length === 0) {
+    return (
+      <>
+        <section className="flexStart flex-col paddings">
+          <Categories />
+
+          <p className="no-result-text text-center">
+            No projects found, go create some first.
+          </p>
+        </section>
+      </>
+    );
+  };
 
   return (
     <>
@@ -45,10 +62,25 @@ const Home = async ({
         <Categories />
 
         <section className='projects-grid'>
-          <ProjectCard />
+          {projectsToDisplay.map(({ node }: { node: ProjectInterface }) => (
+            <ProjectCard
+              key={`${node?.id}`}
+              id={node?.id}
+              image={node?.image}
+              title={node?.title}
+              name={node?.createdBy.name}
+              avatarUrl={node?.createdBy.avatarUrl}
+              userId={node?.createdBy.id}
+            />
+          ))}
         </section>
 
-        <LoadMore />
+        <LoadMore
+            startCursor={data?.projectSearch?.pageInfo?.startCursor}
+            endCursor={data?.projectSearch?.pageInfo?.endCursor}
+            hasPreviousPage={data?.projectSearch?.pageInfo?.hasPreviousPage}
+            hasNextPage={data?.projectSearch?.pageInfo.hasNextPage}
+        />
       </section>
     </>
   );
