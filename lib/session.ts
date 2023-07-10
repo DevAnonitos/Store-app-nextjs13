@@ -52,7 +52,7 @@ export const authOptions: NextAuthOptions = {
                     },
                 };
 
-                return session;
+                return newSession;
             } catch (error: any) {
                 console.log("Error retrieving user data: ", error.message);
                 return session;
