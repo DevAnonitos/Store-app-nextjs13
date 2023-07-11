@@ -14,7 +14,7 @@ import ProfileMenu from './ProfileMenu';
 
 const Navbar = async () => {
 
-    const session  = null;
+    const { data: session, status } = useSession()
 
     return (
         <>
@@ -48,10 +48,10 @@ const Navbar = async () => {
                 </div>
 
                 <div className='flexCenter gap-4'>
-                    {session ? (
+                    {session?.user ? (
                         <>
                             <ProfileMenu
-
+                                session={session}
                             />
                             <Link href="/create-project">
                                 <Button title='Share Work' />

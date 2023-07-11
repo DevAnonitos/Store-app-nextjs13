@@ -7,6 +7,7 @@ import FormField from "./FormField";
 import LoadMore from "./LoadMore";
 import Modal from "./Modal";
 import Navbar from "./Navbar";
+import Provider from "./Provider";
 import ProfileMenu from "./ProfileMenu";
 import ProfilePage from "./ProfilePage";
 import ProjectActions from "./ProjectActions";
@@ -24,6 +25,7 @@ export {
     LoadMore,
     Modal,
     Navbar,
+    Provider,
     ProfileMenu,
     ProfilePage,
     ProjectActions,

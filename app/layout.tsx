@@ -1,5 +1,6 @@
 import './globals.css';
-import { Footer, Navbar } from '@/components';
+import { Footer, Navbar, Provider } from '@/components';
+import { SessionInterface } from '@/common.types';
 
 export const metadata = {
   title: 'StoreStockApp',
@@ -8,17 +9,22 @@ export const metadata = {
 
 export default function RootLayout({
   children,
+  session,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode,
+  session: SessionInterface,
 }) {
+
   return (
     <html lang="en">
       <body>
+        <Provider session={session}>
           <Navbar />
             <main>
               {children}
             </main>
           <Footer />
+        </Provider>
       </body>
     </html>
   );
