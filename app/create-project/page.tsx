@@ -1,14 +1,13 @@
 import React from 'react'
 import { redirect } from 'next/navigation';
 import { Modal, ProjectForm } from '@/components';
-import { getCurrentUser } from '@/libs/session';
 
 const CreateProject = async () => {
 
-    const session = await getCurrentUser();
+    const session = {};
     console.log(session);
 
-    if(!session?.user) {
+    if(!session) {
         redirect("/");
     }
 
@@ -21,7 +20,7 @@ const CreateProject = async () => {
 
                 <ProjectForm
                     type='create'
-                    session={session}
+
                 />
             </Modal>
         </>
