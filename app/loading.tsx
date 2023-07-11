@@ -34,7 +34,7 @@ const Loading = () => {
                         strokeWidth="5"
                         stroke="#9747FF"
                         strokeLinecap="round"
-                    /> 
+                    />
                 </motion.svg>
             </div>
         </>
