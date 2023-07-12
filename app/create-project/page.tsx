@@ -1,13 +1,15 @@
 import React from 'react'
 import { redirect } from 'next/navigation';
 import { Modal, ProjectForm } from '@/components';
+import { useSession } from 'next-auth/react';
+import { SessionInterface } from '@/common.types';
 
 const CreateProject = async () => {
 
-    const session = {};
+    const { data: session } = useSession();
     console.log(session);
 
-    if(!session) {
+    if(!session?.user) {
         redirect("/");
     }
 
@@ -20,7 +22,7 @@ const CreateProject = async () => {
 
                 <ProjectForm
                     type='create'
-
+                    session={session as SessionInterface}
                 />
             </Modal>
         </>

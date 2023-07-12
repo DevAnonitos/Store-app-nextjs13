@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { SessionInterface } from '@/common.types';
 
 import { NavLinks } from '@/constant';
 import { useSession } from 'next-auth/react';
@@ -12,9 +13,10 @@ import AuthProviders from './AuthProviders';
 import Button from './Button';
 import ProfileMenu from './ProfileMenu';
 
+
 const Navbar = async () => {
 
-    const { data: session, status } = useSession()
+    const { data: session } = useSession();
 
     return (
         <>
@@ -51,7 +53,7 @@ const Navbar = async () => {
                     {session?.user ? (
                         <>
                             <ProfileMenu
-                                session={session}
+                                session={session as SessionInterface}
                             />
                             <Link href="/create-project">
                                 <Button title='Share Work' />
