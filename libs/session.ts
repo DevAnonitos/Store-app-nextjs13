@@ -78,12 +78,4 @@ export const authOptions: NextAuthOptions = {
   },
 };
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse,
-) {
-  const session = await getServerSession(req, res, authOptions) as SessionInterface;
-  res.send(JSON.stringify(session, null, 2))
-}
 
-console.log(handler);

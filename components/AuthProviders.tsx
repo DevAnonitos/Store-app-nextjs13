@@ -38,7 +38,7 @@ const AuthProviders = () => {
         return (
             <>
                 <div>
-                    {Object.values(providers).map((provider: Provider, i) => (
+                    {providers && Object.values(providers).map((provider: Provider, i) => (
                         <Button
                             key={i}
                             title='SignIn'
