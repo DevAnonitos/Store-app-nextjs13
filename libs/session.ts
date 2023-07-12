@@ -4,7 +4,6 @@ import { AdapterUser } from "next-auth/adapters";
 import GoogleProvider from "next-auth/providers/google";
 import jsonwebtoken from 'jsonwebtoken'
 import { JWT } from "next-auth/jwt";
-import type { NextApiRequest, NextApiResponse } from "next"
 
 import { createUser, getUser } from "./actions";
 import { SessionInterface, UserProfile } from "@/common.types";
@@ -17,7 +16,7 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   jwt: {
-    encode: ({ secret, token }) => {
+    encode: async ({ secret, token }) => {
       const encodedToken = jsonwebtoken.sign(
         {
           ...token,
@@ -78,4 +77,8 @@ export const authOptions: NextAuthOptions = {
   },
 };
 
+export async function getCurrentUser() {
+  const session = await getServerSession(authOptions) as SessionInterface;
 
+  return session;
+}
